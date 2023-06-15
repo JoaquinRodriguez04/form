@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+label{
+   font-size:  1.1em;
+}
+
 .swal2-confirm{
     background-color: #cdffcb !important;
     padding: .8em 1.5em;
