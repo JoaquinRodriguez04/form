@@ -1,72 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-label{
-   font-size:  1.1em;
+body{
+    background-color: #1a1a1a;
+    font-family: 'Roboto', sans-serif;
+    /* background-blend-mode: multiply; */
 }
 
-.swal2-confirm{
-    background-color: #cdffcb !important;
-    padding: .8em 1.5em;
-    border-radius: 5em !important; 
-    color: #111 !important;
-    outline: none !important;
-    border: none !important;
-}
-
-.formContainer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background: linear-gradient(to top right, #bccbff, #decdff, #f8d3ed, #20a7d8);
-}
-
-.form{
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-}
-
-.form > input,button{
-    margin: .5em 0;
-    padding: .7em .8em;
-    border: 1px solid #111;
-    border-radius: 5em;
-    background-color: #cdffcb;
-    outline: none;
-}
-
-.form > button{
-    background-color: #111;
+h2,li{
     color: #f9f9ff;
 }
 
-.form > input:hover{
-    background-color: #a0c79f;
+.products-wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-.form > input:focus{
-    background-color: #bccbff;
+.products-container{
+    padding: 2em;
 }
 
-
-.form > button:hover{
-    background-color: #333;
+.title-products{
+    font-size: 2em;
+    margin: .8em 0;
 }
 
-@media screen and (min-width:900px) {
+.li-product{
+    margin: .5em 0;
+    display: flex;
+    font-size: 1.1em;
+    margin-right: .2em;
+}
+
+.price-colors{
+    color: #ee8e96;
+    margin-left: .2em;
+}
+
+/* @media screen and (min-width:900px) {
     .form{
         width: 30%;
     }
 }
 
-
 @media screen and (min-width:1500px) {
     .form{
         width: 20%;
     }
-}
+} */
