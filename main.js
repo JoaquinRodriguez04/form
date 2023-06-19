@@ -256,30 +256,101 @@ console.log(colors);
 // array copia
 console.log(copyColors);
 
-// usando librerias (sweetalert2)
-// hacer un formulario que al enviar nos salte un mensaje que se ha enviado con exito
 
-const formActions = document.querySelector("#formActions");
+// crear un setTimeout que imprima un saludo a un usuario guardado en una variable, debe tardar 3 segundos en aparecer por consola
+let user = "joaquin";
 
-formActions.addEventListener("submit", (e) =>{
-  e.preventDefault();
+function saludar(){
+  setTimeout( () => {
+    console.log(`hola ${user} como andas?, que tal tu dia?`);
+  },3000);
 
-  let inputForm = document.querySelector("#inputForm").value;
+};
 
-  if (inputForm === "") {
-    Swal.fire({
-      title: 'los campos estan vacios!',
-      icon: 'error',
-      iconColor:"#d62946",
-      confirmButtonText: 'ok'
-    });
-  }else{
-    Swal.fire({
-      title: 'se ha enviado con exito!',
-      icon: 'success',
-      iconColor:"#cdffcb",
-      confirmButtonText: 'ok'
-  });
+// saludar();
+
+
+// crear un contador con un setInterval y que cuando llegue a 50 se detenga el contador
+let contador = 0;
+
+function sumarContador(){
+const intervalo = setInterval( () => {
+  contador++;
+  console.log(contador);
+
+  if (contador === 10) {
+    clearInterval(intervalo);
   };
 
-});
+},500);
+
+};
+
+// sumarContador();
+
+
+// crear una promera que reciba un valor(true/false) y nos devuelva si la promesa fue resuelta o fue rechazada
+let value = true;
+
+const eventoFuturo = (response) => {
+  return new Promise((resolve, reject) => {
+    response === true ? resolve("la promesa fue resuelta") : reject("la promesa fue rechazada");
+  });
+};
+
+eventoFuturo(value)
+  .then((res) => {
+    console.log(res);
+  }).catch((err) => {
+    console.log(err)
+  });
+
+
+// mostrar un array de objetos en la consola utilizando una promesa
+let list = document.querySelector(".list-products");
+
+const arrayProducts = [
+  { id: 1, name: 'Camiseta', price: 19.99 },
+  { id: 2, name: 'Pantalones', price: 39.99 },
+  { id: 3, name: 'Zapatos', price: 79.99 },
+  { id: 4, name: 'Bolso', price: 29.99 },
+  { id: 5, name: 'Sombrero', price: 14.99 },
+  { id: 6, name: 'Gafas de sol', price: 9.99 },
+  { id: 7, name: 'Reloj', price: 99.99 },
+  { id: 8, name: 'Bufanda', price: 12.99 },
+  { id: 9, name: 'Guantes', price: 9.99 },
+  { id: 10, name: 'Calcetines', price: 4.99 }
+];
+
+const orderProducts = () => {
+  return new Promise((resolve) => {
+    resolve(arrayProducts);
+  });
+};
+
+let productos = [];
+
+function showProducts(array){
+
+  array.forEach(item => {
+    const li = document.createElement("li");
+    li.classList.add("li-product");
+
+    const p = document.createElement("p");
+    p.classList.add("price-colors");
+    p.textContent = item.price;
+  
+    li.id = item.id;
+    li.textContent = `${item.name} -`;
+    li.appendChild(p);
+
+    list.append(li);
+  });
+
+};
+
+orderProducts()
+  .then((res) => {
+    productos = res;
+    showProducts(res);
+  });
