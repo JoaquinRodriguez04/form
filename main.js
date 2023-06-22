@@ -354,3 +354,17 @@ orderProducts()
     productos = res;
     showProducts(res);
   });
+
+const urlProducts = "https://gist.githubusercontent.com/spacecowb0y/f2be54763087f741f6d458ca7cd40855/raw/0be99b657c9d0c99f2ee4016d985f01ec0381db0/productos.json";
+let list2 = document.querySelector(".list-products-2");
+
+fetch(urlProducts)
+  .then(response => response.json())
+  .then(data => {
+    let Data100 = data.rows.slice(0,100);
+
+    let marca = Data100.map((row => `<div class="content_product"><p>${row.value.nombre}</p><p class="color_violet">${row.value._id}</p></div>`));
+    marca = marca.join("");
+
+    list2.innerHTML = marca;
+  })
